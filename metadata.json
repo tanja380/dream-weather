@@ -1,0 +1,7 @@
+{
+  "name": "DreamWeather",
+  "description": "A stunning, mobile-first weather application featuring immersive 3D-style visuals, detailed forecasts, and multi-city management with a deep purple aesthetic.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
