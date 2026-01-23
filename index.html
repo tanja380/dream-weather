@@ -20,17 +20,23 @@
         background-color: #000;
         color: white;
         overflow: hidden;
-        position: fixed; /* Prevents bounce scroll on iOS */
-        width: 100%;
-        height: 100%;
-        /* Native-like restrictions */
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         user-select: none;
         touch-action: manipulation;
       }
-      /* Allow scrolling in list but not in body */
+      #root {
+        width: 100%;
+        height: 100%;
+      }
       .scrollable-content {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -63,5 +69,6 @@
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
