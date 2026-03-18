@@ -1,3 +1,4 @@
+
 export interface WeatherData {
   id: string;
   city: string;
@@ -28,4 +29,4 @@ export interface DailyForecast {
   low: number;
 }
 
-export type ViewState = 'detail' | 'list';
+export type ViewState = 'onboarding' | 'detail' | 'list';

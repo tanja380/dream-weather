@@ -2,12 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { DetailView } from './components/DetailView';
 import { CityList } from './components/CityList';
+import { OnboardingView } from './components/OnboardingView';
 import { ViewState, WeatherData } from './types';
 import { INITIAL_CITIES } from './constants';
 import { GoogleGenAI } from "@google/genai";
 
 const App = () => {
-  const [view, setView] = useState<ViewState>('detail');
+  const [view, setView] = useState<ViewState>('onboarding');
   const [selectedCityId, setSelectedCityId] = useState<string>('antalya');
   const [cities, setCities] = useState<WeatherData[]>(INITIAL_CITIES);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -174,6 +175,11 @@ const App = () => {
     <div className="fixed inset-0 bg-black flex items-center justify-center overflow-hidden">
       <div className="w-full h-full md:w-[390px] md:h-[844px] md:rounded-[40px] overflow-hidden relative shadow-2xl bg-[#1e1b4b]">
         
+        {/* Onboarding View */}
+        <div className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out ${view === 'onboarding' ? 'translate-y-0 opacity-100 z-30' : '-translate-y-full opacity-0 z-0'}`}>
+          <OnboardingView onStart={() => setView('detail')} />
+        </div>
+
         {/* Detail View Container */}
         <div className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${view === 'detail' ? 'translate-x-0 opacity-100 z-20' : '-translate-x-full opacity-0 z-0'}`}>
           <DetailView 
